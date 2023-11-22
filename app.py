@@ -164,6 +164,6 @@ def details():
         return render_template("details.html",upsize=up_fsize,upformat=up_format,wsize=wav_fsize,ftime=ftime,ctime=convert,tptime=ptime,alength=l,twords=sp_len)
 
      
-if __name__ == "__main__":
-    os.environ.setdefault('FLASK_DEBUG', 'development')
-    app.run(debug=False)
+# if __name__ == "__main__":
+#     os.environ.setdefault('FLASK_DEBUG', 'development')
+#     app.run(debug=False)
