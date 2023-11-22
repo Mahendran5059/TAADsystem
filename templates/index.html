@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAAD System</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>   
+    <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='styles.css')}}"/>
+</head>
+<script>
+function disablebtn(){
+	//e.preventDefault()
+
+	document.getElementById("sendfilef").submit();
+	document.getElementById('recordButton').disabled=true;
+	document.getElementById('sendbtn').disabled=true;
+	document.getElementById('detailButton').disabled=true;
+
+}
+function rdisablebtn(){
+	//e.preventDefault()
+
+	document.getElementById('recordButton').disabled=true;
+	document.getElementById('sendbtn').disabled=true;
+	document.getElementById("raudio").submit();
+	document.getElementById('detailButton').disabled=true;
+}
+</script>
+<body>
+
+        <header>
+     
+            <nav class="navbar">
+    
+                <span class="logo"><a href="index1.html">TAAD</a></span>
+                
+                <ul class="navlist">
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Signup</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </div>
+                
+            </nav>
+            
+        </header>
+            
+        <main>
+            <div class="heading">
+                <h1>TAMIL ABUSIVE AUDIO DETECTION System</h1>
+                <p>Categorize the audio input into following four categories
+                    <!-- <span class="listItems"> Abusive</span> -->
+                    <ul>
+                        <li>Abusive</li>
+                        <li>Less Abusive</li>
+                        <li>Disrespect</li>
+                        <li>Normal</li> 
+                     </ul>
+                </p>
+            </div>
+            <div class="slideshow-container">
+                
+                    <div class="carousel">  
+                        <div class="slider">
+                            <section>
+                                <Span class = "highlight">Abusive:</Span>
+                                <p>Words and terms which are more vulgar and based on sexual harassment, behaviour, relationship is classified as abusive.</p>
+                            </section>
+                            <section>
+                                <Span class = "highlight">Less Abusive:</Span> 
+                                <p>Words which express the ugly and gives almost abusive meaning, verbal meaning of abusive and ugly things, behaviour, character.</p>
+                            </section>
+                            <section>
+                                <Span class = "highlight">Disrespect:</Span>
+                                <p>Lexicon composed of mating, sedition, unruliness, violation, teasing, misbehave, indiscipline meaning given by the words and terms which hurts the people.</p>
+                            </section>
+                            <section>
+                                <Span class = "highlight">Normal: </Span> 
+                                <p>Words that present in normal conversations.</p>
+                            </section>
+                        </div>
+                        <div class="controls">
+                            <span class="arrow left"><ion-icon name="chevron-back-outline"></ion-icon></span>
+                            <span class="arrow right"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+                            <ul>
+                                <li class="selected"></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div class="container">
+		<div class="output_container">
+                    <form action="record" method="post" id="raudio">
+                        <h4 style="color:blue">{{msg}} </h4>
+                        <div class="record">
+                            <button id="recordButton" name="record" onclick="rdisablebtn()">Record</i></button>
+                            <br>
+                            <span class="recording"></span>
+                            <!--<button id="stopButton" disabled>Stop</button> -->
+                        </div>
+                        </form>
+                        
+                        <div class="note">
+                            <p><strong>Kindly Note:</strong>All standard audio file formats(aac,aiff,mp3,mp2,mp4,pcm,wav,ogg,flac,wma etc) and only mpeg,mp4 for videos</p>
+                        </div>
+                        
+                        <div class="fileUpload">
+                            <form id="sendfilef" action="{{ url_for('predict')}}" method="post" enctype= "multipart/form-data">
+                            <h4 style="color:red">{{warning}} </h4>
+                            <input class="input" type="file" name="file" accept="audio/*,.mpeg,.mp4">
+                            <button id="sendbtn"  onclick="disablebtn()">Submit</button>
+                            <br>
+                            <span class="uploading"></span>
+                            </form>
+                        </div>
+                        
+                        <div class="output">
+                            <span >Output</span>
+                        </div>
+                        <h2>{{results}}</h2>
+                        <br>
+                        <br>
+                        <form action="details" method="post" id="details">
+                            <button id="detailButton" name="detail">More Details</i></button>
+                        </form>				
+                </div>
+                <div id="result_container" id="result_container" class="result_container">
+                    <div class="time_complexity">
+                        <div id="time_complexity_heading" class="time_complexity_heading">
+                            <p>Time complexity for the process:</p>
+                        </div>
+                        <div class="time_complexity_image result_image">
+                            <img src="{{url_for('static',filename='/plots/processing.png')}}" width="650" height="400" alt="time complexity bar graph">
+                        </div>
+                    </div>
+                    <div class="word_count">
+                        <div id="word_count_heading" class="word_count_heading">
+                            <p>Words count:</p>
+                        </div>
+                        <div class="word_count_image result_image">
+                            <img src="{{url_for('static',filename='/plots/count_words.png')}}" alt="word count bar graph">
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+                
+            
+            
+        </main>
+    <footer>
+        <div class="waves">
+            <div class="wave" id="wave1"></div>
+            <div class="wave" id="wave2"></div>
+            <div class="wave" id="wave3"></div>
+        </div>
+        <ul class="contact_icon">
+            <li><a href="#"><ion-icon name="mail-outline"></ion-icon></a></li>
+            <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+            <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+            <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+        </ul>
+
+        <p>&copy TAAD | All Rights Reserved</p>
+    </footer>
+   
+    <script defer type="text/javascript" src="{{url_for('static',filename='script.js')}}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

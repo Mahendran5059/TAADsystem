@@ -1,0 +1,12 @@
+[workspace]
+restore_data_on_startup = True
+save_data_on_exit = True
+save_history = True
+save_non_project_files = False
+project_type = 'empty-project-type'
+recent_files = ['..\\IBM_project_app\\templates\\mainpage.html', '..\\IBM_project_app\\app.py', 'TAAD.py', 'plots.py', 'app.py', 'templates\\details.html', 'recognize_speech.py', 'audio_split.py', '..\\IBM_project_app\\app_ibm.py', 'templates\\index1.html', 'C:\\Users\\Mahendran\\.spyder-py3\\autosave\\temp.py', 'templates\\index.html']
+
+[main]
+version = 0.2.0
+recent_files = []
+

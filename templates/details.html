@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAAD System</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>   
+    <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='styles.css')}}"/>
+</head>
+<body>
+
+        <header>
+     
+            <nav class="navbar">
+    
+                <span class="logo"><a href="index1.html">TAAD</a></span>
+                
+                <ul class="navlist">
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Signup</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </div>
+                
+            </nav>
+            
+        </header>
+        <h1 style="font-size:18;background-color:brown;text-align:center;color:green;">DETAILS</h1>
+        <!--<h3 align="center"><pre>Uploaded file format: {{upformat}}           Uploaded file size: {{upsize}}</pre></h3>-->
+        <table>
+                <tr>
+                <td><h3>Uploaded file size: {{upsize}}</h3></td>
+                <td><h3>Uploaded file format: {{upformat}}</h3></td>
+                </tr>
+                <tr>
+                <td><h3>Wav file size: {{wsize}}</h3></td>
+                <td><h3>Conversion Time for WAV format : {{ftime}}</h3></td>
+                </tr>
+                <tr>
+                <td><h3>Total Audio to text conversion time: {{ctime}}</h3></td>
+                <td><h3>Total audio length: {{alength}}</h3></td>
+                </tr>
+                <tr>
+                <td><h3>Total processing time for prediction: {{tptime}}</h3></td>
+                <td><h3>Total No of words spoken in audio: {{twords}}</h3></td>
+                </tr>
+                <tr>
+                <td>
+                <img src="{{url_for('static',filename='/plots/count_words.png')}}" width="800" height="400" alt="word count bar graph">
+                </td>
+                <td>
+                <img src="{{url_for('static',filename='/plots/processing.png')}}" width="800" height="400" alt="time complexity bar graph">
+                </td>
+                </tr>
+                <tr>
+                <td>
+                <img src="{{url_for('static',filename='/plots/undisserved.png')}}" width="800" height="400" alt="undisserved words graph">
+                </td>
+                <td> 
+                <img src="{{url_for('static',filename='/plots/no_of_words.png')}}" width="800" height="400" alt="no of words spoken on each min graph">
+                </td>
+                </tr>
+        
+        </table>
+</body>
