@@ -83,7 +83,6 @@ PyQtWebEngine==5.12.1
 PyQtWebEngine-Qt5==5.15.2
 python-lsp-jsonrpc==1.0.0
 pytz==2022.7.1
-pywin32
 pywinpty==2.0.10
 PyYAML==6.0
 regex==2022.10.31
