@@ -54,7 +54,7 @@ murmurhash==1.0.9
 mypy-extensions==0.4.3
 nltk==3.8.1
 numexpr==2.8.4
-numpy==1.21.6
+numpy==1.21.1
 nvidia-ml-py3==7.352.0
 oauthlib==3.2.2
 Open-Tamil==1.1
